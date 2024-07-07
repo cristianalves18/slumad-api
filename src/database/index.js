@@ -11,7 +11,6 @@ class Database {
         this.init();
     }
 
-
     init() {
         this.connection = new Sequelize(configDatabase)
         models.map((model) => model.init(this.connection))
