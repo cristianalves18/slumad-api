@@ -1,4 +1,5 @@
 import Sequelize from "sequelize";
+import mongoose from "mongoose";
 
 import configDatabase from '../config/database';
 
@@ -11,6 +12,7 @@ const models = [User, Product, Category];
 class Database {
     constructor() {
         this.init();
+        this.mongo();
     }
 
     init() {
@@ -22,6 +24,10 @@ class Database {
 
             );
 
+    }
+
+    mongo() {
+        this.mongoConnection = mongoose.connect('mongodb://localhost:27017/slumad-api',);
     }
 }
 export default new Database();
